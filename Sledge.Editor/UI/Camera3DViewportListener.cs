@@ -89,7 +89,7 @@ namespace Sledge.Editor.UI
             }
 
             var move = units;
-            var tilt = 2f;
+            var tilt = Sledge.Settings.View.TurningSpeed * seconds;
 
             // These keys are used for hotkeys, don't want the 3D view to move about when trying to use hotkeys.
             var ignore = KeyboardState.IsAnyKeyDown(Keys.ShiftKey, Keys.ControlKey, Keys.Alt);

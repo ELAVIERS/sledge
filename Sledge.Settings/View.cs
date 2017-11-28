@@ -30,6 +30,7 @@ namespace Sledge.Settings
 
         public static int ForwardSpeed { get; set; }
         public static decimal TimeToTopSpeed { get; set; }
+        public static int TurningSpeed { get; set; }
         public static decimal MouseWheelMoveDistance { get; set; }
         public static bool InvertX { get; set; }
         public static bool InvertY { get; set; }
@@ -80,6 +81,7 @@ namespace Sledge.Settings
 
             ForwardSpeed = 1000;
             TimeToTopSpeed = 0.5m;
+            TurningSpeed = 180;
             MouseWheelMoveDistance = 500;
 
             InvertX = false;

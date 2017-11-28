@@ -100,6 +100,10 @@ namespace Sledge.Editor.Settings
             this.CameraFOV = new System.Windows.Forms.NumericUpDown();
             this.label29 = new System.Windows.Forms.Label();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.TurningSpeedUpDown = new System.Windows.Forms.NumericUpDown();
+            this.TurningSpeed = new System.Windows.Forms.TrackBar();
+            this.label47 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -338,6 +342,8 @@ namespace Sledge.Editor.Settings
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CameraFOV)).BeginInit();
             this.groupBox13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TurningSpeedUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TurningSpeed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TimeToTopSpeedUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ForwardSpeedUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MouseWheelMoveDistance)).BeginInit();
@@ -1105,6 +1111,10 @@ namespace Sledge.Editor.Settings
             // 
             // groupBox13
             // 
+            this.groupBox13.Controls.Add(this.label48);
+            this.groupBox13.Controls.Add(this.TurningSpeedUpDown);
+            this.groupBox13.Controls.Add(this.TurningSpeed);
+            this.groupBox13.Controls.Add(this.label47);
             this.groupBox13.Controls.Add(this.label32);
             this.groupBox13.Controls.Add(this.label43);
             this.groupBox13.Controls.Add(this.label31);
@@ -1119,10 +1129,74 @@ namespace Sledge.Editor.Settings
             this.groupBox13.Controls.Add(this.ForwardSpeed);
             this.groupBox13.Location = new System.Drawing.Point(6, 187);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(463, 180);
+            this.groupBox13.Size = new System.Drawing.Size(463, 228);
             this.groupBox13.TabIndex = 2;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Navigation";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(392, 152);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(67, 13);
+            this.label48.TabIndex = 11;
+            this.label48.Text = "degrees/sec";
+            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // TurningSpeedUpDown
+            // 
+            this.TurningSpeedUpDown.Increment = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.TurningSpeedUpDown.Location = new System.Drawing.Point(392, 129);
+            this.TurningSpeedUpDown.Maximum = new decimal(new int[] {
+            360,
+            0,
+            0,
+            0});
+            this.TurningSpeedUpDown.Minimum = new decimal(new int[] {
+            90,
+            0,
+            0,
+            0});
+            this.TurningSpeedUpDown.Name = "TurningSpeedUpDown";
+            this.TurningSpeedUpDown.Size = new System.Drawing.Size(65, 20);
+            this.TurningSpeedUpDown.TabIndex = 10;
+            this.TurningSpeedUpDown.Value = new decimal(new int[] {
+            180,
+            0,
+            0,
+            0});
+            this.TurningSpeedUpDown.ValueChanged += new System.EventHandler(this.TurningSpeedUpDownValueChanged);
+            // 
+            // TurningSpeed
+            // 
+            this.TurningSpeed.AutoSize = false;
+            this.TurningSpeed.BackColor = System.Drawing.SystemColors.Window;
+            this.TurningSpeed.LargeChange = 45;
+            this.TurningSpeed.Location = new System.Drawing.Point(125, 116);
+            this.TurningSpeed.Maximum = 360;
+            this.TurningSpeed.Minimum = 90;
+            this.TurningSpeed.Name = "TurningSpeed";
+            this.TurningSpeed.Size = new System.Drawing.Size(261, 42);
+            this.TurningSpeed.SmallChange = 15;
+            this.TurningSpeed.TabIndex = 9;
+            this.TurningSpeed.TickFrequency = 45;
+            this.TurningSpeed.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.TurningSpeed.Value = 180;
+            this.TurningSpeed.Scroll += new System.EventHandler(this.TurningSpeedChanged);
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(9, 131);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(77, 13);
+            this.label47.TabIndex = 8;
+            this.label47.Text = "Turning Speed";
             // 
             // label32
             // 
@@ -1136,7 +1210,7 @@ namespace Sledge.Editor.Settings
             // 
             // label43
             // 
-            this.label43.Location = new System.Drawing.Point(238, 148);
+            this.label43.Location = new System.Drawing.Point(238, 196);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(148, 20);
             this.label43.TabIndex = 6;
@@ -1207,7 +1281,7 @@ namespace Sledge.Editor.Settings
             // 
             // MouseWheelMoveDistance
             // 
-            this.MouseWheelMoveDistance.Location = new System.Drawing.Point(392, 148);
+            this.MouseWheelMoveDistance.Location = new System.Drawing.Point(392, 196);
             this.MouseWheelMoveDistance.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -1224,7 +1298,7 @@ namespace Sledge.Editor.Settings
             // 
             // InvertMouseX
             // 
-            this.InvertMouseX.Location = new System.Drawing.Point(12, 148);
+            this.InvertMouseX.Location = new System.Drawing.Point(12, 196);
             this.InvertMouseX.Name = "InvertMouseX";
             this.InvertMouseX.Size = new System.Drawing.Size(149, 24);
             this.InvertMouseX.TabIndex = 0;
@@ -1233,7 +1307,7 @@ namespace Sledge.Editor.Settings
             // 
             // InvertMouseY
             // 
-            this.InvertMouseY.Location = new System.Drawing.Point(12, 118);
+            this.InvertMouseY.Location = new System.Drawing.Point(12, 166);
             this.InvertMouseY.Name = "InvertMouseY";
             this.InvertMouseY.Size = new System.Drawing.Size(149, 24);
             this.InvertMouseY.TabIndex = 0;
@@ -3591,6 +3665,8 @@ namespace Sledge.Editor.Settings
             ((System.ComponentModel.ISupportInitialize)(this.CameraFOV)).EndInit();
             this.groupBox13.ResumeLayout(false);
             this.groupBox13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TurningSpeedUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TurningSpeed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TimeToTopSpeedUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ForwardSpeedUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MouseWheelMoveDistance)).EndInit();
@@ -3935,5 +4011,9 @@ namespace Sledge.Editor.Settings
         private System.Windows.Forms.ColumnHeader NameColumn;
         private System.Windows.Forms.ColumnHeader PathColumn;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.NumericUpDown TurningSpeedUpDown;
+        private System.Windows.Forms.TrackBar TurningSpeed;
+        private System.Windows.Forms.Label label47;
     }
 }

@@ -734,6 +734,9 @@ namespace Sledge.Editor.Settings
             TimeToTopSpeedUpDown.Value = Sledge.Settings.View.TimeToTopSpeed / 1000;
             TimeToTopSpeedChanged(null, null);
 
+            TurningSpeedUpDown.Value = TurningSpeed.Value = Sledge.Settings.View.TurningSpeed;
+            TurningSpeedChanged(null, null);
+
             InvertMouseX.Checked = Sledge.Settings.View.InvertX;
             InvertMouseY.Checked = Sledge.Settings.View.InvertY;
             MouseWheelMoveDistance.Value = Sledge.Settings.View.MouseWheelMoveDistance;
@@ -795,6 +798,7 @@ namespace Sledge.Editor.Settings
 
             Sledge.Settings.View.ForwardSpeed = ForwardSpeed.Value;
             Sledge.Settings.View.TimeToTopSpeed = TimeToTopSpeed.Value * 100m;
+            Sledge.Settings.View.TurningSpeed = TurningSpeed.Value;
             Sledge.Settings.View.InvertX = InvertMouseX.Checked;
             Sledge.Settings.View.InvertY = InvertMouseY.Checked;
             Sledge.Settings.View.MouseWheelMoveDistance = MouseWheelMoveDistance.Value;
@@ -924,6 +928,16 @@ namespace Sledge.Editor.Settings
         private void TimeToTopSpeedUpDownValueChanged(object sender, EventArgs e)
         {
             if (TimeToTopSpeedUpDown.Value != TimeToTopSpeed.Value) TimeToTopSpeed.Value = (int)(TimeToTopSpeedUpDown.Value * 10);
+        }
+
+        private void TurningSpeedChanged(object sender, EventArgs e)
+        {
+            if (TurningSpeed.Value != TurningSpeedUpDown.Value) TurningSpeedUpDown.Value = TurningSpeed.Value;
+        }
+
+        private void TurningSpeedUpDownValueChanged(object sender, EventArgs e)
+        {
+            if (TurningSpeedUpDown.Value != TurningSpeed.Value) TurningSpeed.Value = (int)TurningSpeedUpDown.Value;
         }
 
         private void SteamInstallDirBrowseClicked(object sender, EventArgs e)
